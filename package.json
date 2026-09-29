@@ -1,0 +1,45 @@
+{
+  "name": "@seosiri/stal-mcp",
+  "version": "1.0.4",
+  "description": "SEOSIRI Theranostic Autonomous Loop (STAL) Core Engine - Unified Medical Context Protocol orchestrating BioAssay validation, Biopharma molecular docking, and BioRobotics trajectory kinematics with HIPAA zero-retention PII stripping.",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "seosiri-stal-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "npx tsx node_modules/tape/bin/tape tests/**/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "model-context-protocol",
+    "mcp",
+    "theranostics",
+    "bioassay",
+    "biopharma",
+    "biorobotics",
+    "hipaa",
+    "cdisc-sdtm",
+    "seosiri"
+  ],
+  "author": "Momenul Ahmad <info@seosiri.com> (https://seosiri.com)",
+  "license": "MIT",
+  "homepage": "https://www.seosiri.com/2026/08/stal-mcp.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SEOSiri-Official/stal-mcp.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "tape": "^5.9.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}
