@@ -1,3 +1,4 @@
+import { CircuitBreaker } from './security/circuitBreaker.js';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
@@ -10,6 +11,7 @@ import { BioroboticsKinematicPlanner } from './stages/bioroboticsStage.js';
 import { StalMeteredBillingEngine } from './billing/meterEngine.js';
 import { StalExecutionOutput } from './types.js';
 
+const cb = new CircuitBreaker();
 const mcpServer = new Server(
   {
     name: 'seosiri-stal-core-engine',
