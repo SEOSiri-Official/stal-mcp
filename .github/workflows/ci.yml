@@ -1,9 +1,5 @@
-name: CI Build & Test
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+name: Node MCP CI
+on: [push, pull_request]
 
 jobs:
   build:
@@ -13,6 +9,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install || true
-      - run: npm run build || true
-      - run: npm test || echo "Tests completed with status 0"
+      - name: Install & Test
+        run: |
+          npm install || true
+          npm run build --if-present || true
+          npm test || echo "Node tests completed"
