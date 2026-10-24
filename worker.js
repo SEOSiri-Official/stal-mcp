@@ -257,9 +257,9 @@ export default {
     }
 
     // 4. MCP JSON-RPC 2.0 Endpoint (/v1/mcp)
-    if (url.pathname === "/v1/mcp") {
+    if (url.pathname === "/v1/mcp" || url.pathname === "/rpc") {
       if (request.method !== "POST") {
-        return new Response(JSON.stringify({ error: "Method not allowed. Send POST JSON-RPC 2.0 request." }), { status: 405 });
+        return new Response(JSON.stringify({ error: "Method not allowed. Send POST JSON-RPC 2.0 request." }), { status: 405, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
       }
 
       // Check key auth & rate limiting
@@ -355,7 +355,7 @@ export default {
     try {
       return await env.ASSETS.fetch(request);
     } catch {
-      return new Response("SEOSIRI STAL Edge Gateway Active", { status: 200 });
+      return new Response("SEOSIRI STAL Edge Gateway Active", { status: 200, headers: { "Access-Control-Allow-Origin": "*" } });
     }
   }
 };
