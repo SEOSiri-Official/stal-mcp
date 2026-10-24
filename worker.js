@@ -31,7 +31,7 @@ async function computeHmacSignature(message, secret) {
 }
 
 async function authenticateKey(apiKey, secret) {
-  if (!apiKey || apiKey === "FREE_TIER" || apiKey === "FREE") {
+  if (!apiKey || apiKey === "FREE_TIER" || apiKey === "FREE" || apiKey === "SEOSIRI_AUDIT_PROBE") {
     return { valid: true, user: "ANONYMOUS", tier: "FREE", scope: "ALL", maxPerMin: 30 };
   }
 
